@@ -1,0 +1,42 @@
+class BankAccount {
+    private String accountHolder;
+    private double balance;
+    public BankAccount(String accountHolder, double initialDeposit) {
+        this.accountHolder = accountHolder;
+        this.balance = initialDeposit >= 0 ? initialDeposit : 0;
+    }
+    pulic void deposit(double amount) {
+        if (amount > 0) {
+            balance += amount;
+            System.out.println("$" + amount + " deposited.");
+        } else {
+            System.out.println("Deposit must be positive.");
+        }
+    }
+    public void withdraw(double amount) {
+        if (amount > 0 && amount <= balance) {
+            balance -= amount;
+            System.out.println("$" + amount + " withdrawn.");
+        } else if (amount <= 0) {
+            System.out.println("Withdrawal must be positive.");
+        } else {
+            System.out.println("Not enough funds.");
+        }
+    }
+    public void checkBalance() {
+        System.out.println("Balance: $" + balance);
+    }
+    public String getAccountHolder() {
+        return accountHolder;
+    }
+}
+public class BankingSystem {
+    public static void main(String[] args) {
+        BankAccount account1 = new BankAccount("John Doe", 500);
+        account1.checkBalance();
+        account1.deposit(200);
+        account1.withdraw(100);
+        account1.checkBalance();
+        account1.withdraw(700);
+    }
+}

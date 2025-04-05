@@ -1,0 +1,19 @@
+class Animal {
+    String name;
+    Animal(String name) {
+        this.name = name;
+        System.out.println("Animal Constructor: " + name);
+    }
+}
+class Dog extends Animal {
+    // Child class constructor
+    Dog(String name) {
+        super(name); 
+        System.out.println("Dog Constructor: " + name);
+    }
+}
+public class SuperKeywordExample {
+    public static void main(String[] args) {
+        Dog dog = new Dog("Bulldog");
+    }
+}
